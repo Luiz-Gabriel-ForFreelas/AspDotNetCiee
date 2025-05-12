@@ -1,0 +1,54 @@
+﻿@model CieeProjectWebApp.Models.AnimalViewModel
+
+@{
+    ViewData["Title"] = "Cadastro";
+}
+
+<h1>Cadastro</h1>
+
+<h4>Adicionar Animal</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Cadastro">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="id_animal" />
+            <div class="form-group">
+                <label asp-for="nome_animal" class="control-label"></label>
+                <input asp-for="nome_animal" class="form-control" />
+                <span asp-validation-for="nome_animal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="descricao_animal" class="control-label"></label>
+                <input asp-for="descricao_animal" class="form-control" />
+                <span asp-validation-for="descricao_animal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="especie_animal" class="control-label"></label>
+                <input asp-for="especie_animal" class="form-control" />
+                <span asp-validation-for="especie_animal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="habitat_animal" class="control-label"></label>
+                <input asp-for="habitat_animal" class="form-control" />
+                <span asp-validation-for="habitat_animal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="pais_origem_animal" class="control-label"></label>
+                <input asp-for="pais_origem_animal" class="form-control" />
+                <span asp-validation-for="pais_origem_animal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Adicionar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="ListAnimal">Voltar à lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

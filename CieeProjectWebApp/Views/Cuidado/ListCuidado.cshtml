@@ -1,0 +1,52 @@
+﻿@model List<CieeProjectWebApp.Models.CuidadoViewModel>
+
+@{
+    ViewData["Title"] = "ListCuidado";
+}
+
+<h1>Cuidados</h1>
+
+<p>
+    <a asp-action="Cuidado" asp-controller="Cuidado">Adicionar cuidado</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model[0].id_cuidado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].descricao_cuidado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].frequencia_cuidado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].id_animal_cuidado)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_cuidado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descricao_cuidado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.frequencia_cuidado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_animal_cuidado)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "EditCuidado", new { id_cuidado = item.id_cuidado }) |
+                @Html.ActionLink("Excluir", "DeleteCuidado", new { id_cuidado = item.id_cuidado })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,44 @@
+﻿@model CieeProjectWebApp.Models.CuidadoViewModel
+
+@{
+    ViewData["Title"] = "EditCuidado";
+}
+
+<h1>Editar cadastro</h1>
+
+<h4>Cuidado</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditCuidado">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="id_cuidado" />
+            <div class="form-group">
+                <label asp-for="descricao_cuidado" class="control-label"></label>
+                <input asp-for="descricao_cuidado" class="form-control" />
+                <span asp-validation-for="descricao_cuidado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="frequencia_cuidado" class="control-label"></label>
+                <input asp-for="frequencia_cuidado" class="form-control" />
+                <span asp-validation-for="frequencia_cuidado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="id_animal_cuidado" class="control-label"></label>
+                <input asp-for="id_animal_cuidado" class="form-control" />
+                <span asp-validation-for="id_animal_cuidado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Alterar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="ListAnimalCuidado" asp-controller="Cuidado" asp-route-id_animal_cuidado="@Model.id_animal_cuidado">Voltar à lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

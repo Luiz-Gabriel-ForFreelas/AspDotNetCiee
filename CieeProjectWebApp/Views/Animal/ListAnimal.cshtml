@@ -1,0 +1,65 @@
+﻿@model List<CieeProjectWebApp.Models.AnimalViewModel>
+
+@{
+    ViewData["Title"] = "ListAnimal";
+}
+
+<h1>Animais</h1>
+
+<p>
+    <a asp-action="Cadastro">Adicionar animal</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model[0].id_animal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].nome_animal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].descricao_animal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].especie_animal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].habitat_animal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].pais_origem_animal)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_animal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome_animal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descricao_animal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.especie_animal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.habitat_animal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pais_origem_animal)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "EditAnimal", new { id_animal = item.id_animal }) |
+                @Html.ActionLink("Excluir", "DeleteAnimal", new { id_animal = item.id_animal }) |
+                @Html.ActionLink("Cuidados", "ListAnimalCuidado", "cuidado", new { id_animal_cuidado = item.id_animal })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
